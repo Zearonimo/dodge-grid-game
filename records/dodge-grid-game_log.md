@@ -10,3 +10,5 @@
 - C-261122-DG00 ✅ (세션 M) 프로젝트 독립 환경으로 재구성: STATE.md·records\·.local\(test_outputs, tmp)을 이 저장소 안으로, .gitignore에 .local/ 추가, CLAUDE.md에 상태·기록·공통 원칙 추가
 - C-261122-DG01 ✅ git `--local` user.name=Zearonimo, user.email=GitHub noreply 주소로 설정. gh 2.105.0 설치·로그인 확인(계정 Zearonimo, scopes repo·workflow). 이 세션 PATH엔 gh가 아직 없음 → `C:\Program Files\GitHub CLI\gh.exe` 전체 경로로 씀
 - C-261122-DG02 🟡 GitHub 저장소 Zearonimo/dodge-grid-game(public) 생성, 첫 커밋 5cbb228 main push, Pages build_type=workflow 켬. 첫 빌드 실패(E-DG01) → 브랜치 fix/web-export-etc2, PR https://github.com/Zearonimo/dodge-grid-game/pull/1 의 export 체크 통과. main 합치기·Pages 배포·폰 확인 남음. 바뀐 파일: README.md(플레이 링크), project.godot
+- C-261122-DG03 ✅ PR #1 merge(2defd9d), main 실행 45023322303 export·deploy 성공 → https://zearonimo.github.io/dodge-grid-game/ 배포됨. 페이지 화면은 아직 안 봄(사용자 폰 확인 대기)
+- C-261122-DG04 🟡 게임 기본 구조: scripts/board.gd·player.gd·hazards.gd(돌·레이저·폭탄)·ui.gd 추가, main.gd 재작성(상태·스와이프/방향키·난이도·최고 기록 user://save.cfg, `-- --smoke` 자동 플레이). pages.yml에 Smoke run 단계, CLAUDE.md에 점검·코드 구조. PR https://github.com/Zearonimo/dodge-grid-game/pull/3 (PR #2 커밋 포함) CI 통과: SMOKE 로그 "game over at 15.1", 스크립트 오류 없음. 실제 화면·조작감은 안 봄

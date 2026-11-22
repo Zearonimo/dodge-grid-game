@@ -38,6 +38,16 @@ jobs:
           mkdir -v -p build/web
           touch build/.gdignore
           godot --headless --import
+
+      # 게임을 30초(게임 시간) 동안 혼자 돌려서 스크립트 오류가 있으면 실패시킨다.
+      - name: Smoke run (autoplay)
+        run: |
+          godot --headless --fixed-fps 60 --quit-after 1800 -- --smoke 2>&1 | tee smoke.log
+          grep -q "SMOKE: autoplay on" smoke.log
+          if grep -E "SCRIPT ERROR|Parse Error|Failed to load script" smoke.log; then exit 1; fi
+
+      - name: Export Web
+        run: |
           godot --headless --export-release "Web" build/web/index.html
           ls -la build/web
 
