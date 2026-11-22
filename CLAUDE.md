@@ -33,6 +33,15 @@
 ## 어디서 확인하나
 - **데스크톱:** Godot 에디터로 열어 F5로 실행하거나, 내보낸 `build/web`을 로컬 서버로 띄워 브라우저에서 확인한다.
 - **클라우드(모바일):** Godot 에디터가 없다. 코드를 고치고 PR을 올리면 GitHub Actions가 웹 내보내기를 돌리므로, 그 결과(성공·실패와 로그)로 확인한다. 화면 확인은 `main`에 합친 뒤 플레이 링크에서 한다.
+- **자동 플레이 점검:** Actions는 내보내기 전에 `godot --headless --fixed-fps 60 --quit-after 1800 -- --smoke`로 게임을 혼자 30초 돌리고, `SCRIPT ERROR`·`Parse Error`가 나오면 실패한다. `--smoke` 처리는 `scripts/main.gd`에 있다. 새 장애물·화면을 넣으면 이 점검에서도 그 코드가 돌도록 한다.
+
+## 코드 구조
+- `scripts/main.gd`: 상태(타이틀·플레이·게임 오버), 입력(스와이프·방향키·Enter), 장애물 생성과 난이도, 최고 기록(`user://save.cfg`)
+- `scripts/board.gd`: 격자 크기·위치 계산(`point_at`, `cell_rect`, `lane_rect`)과 바닥 그리기
+- `scripts/player.gd`: 한 칸 이동, 판정 위치(`cell`)
+- `scripts/hazards.gd`: 돌·레이저·폭탄 (경고 → 작동 → 사라짐), `hits(cell)`
+- `scripts/ui.gd`: 점수와 타이틀·게임 오버 화면
+- 그림은 모두 `_draw()`로 그린다 (아직 이미지 에셋 없음).
 
 ## 기기 간 연동 (모바일 클라우드 ↔ 데스크톱)
 ### 작업 시작할 때 (매번)
