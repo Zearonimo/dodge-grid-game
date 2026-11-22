@@ -1,0 +1,28 @@
+; Engine configuration file.
+; Godot 4.7.2. 에디터에서 열면 이 파일을 다시 쓸 수 있다.
+
+config_version=5
+
+[application]
+
+config/name="Dodge Grid"
+config/description="격자 위에서 날아오는 장애물을 피하는 반응속도 게임"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

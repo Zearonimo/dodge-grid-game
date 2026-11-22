@@ -1,0 +1,18 @@
+# Godot
+.godot/
+build/
+*.translation
+export_credentials.cfg
+
+# OS / 편집기
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Claude 로컬 설정
+.claude/settings.local.json
+
+# 이 기기 전용 (테스트 캡처, 임시 사본, 캐시)
+.local/
